@@ -1,0 +1,57 @@
+/* font-family: 'Playfair Display', serif; */
+/* @import url('https://fonts.googleapis.com/css?family=Playfair+Display'); */
+
+/* font-family: 'PT Sans', sans-serif; */
+/* @import url('https://fonts.googleapis.com/css?family=PT+Sans'); */
+
+/***** 초기화 / Normalize *****/
+html, body {margin:0; padding:0; font-size:16px; line-height: 1.15; color:#222; 
+	box-sizing: border-box; height: 100%;}
+p, div, ol, ul, li, h1, h2, h3, h4, h5, h6, header, footer, nav, article, aside, summary, main, details {margin:0; padding:0; box-sizing: border-box;}
+ul, ol, li {list-style: none;}
+form, input, select, button, span {box-sizing: border-box;}
+button {border: none;}
+
+/***** 공통설정 *****/
+.clear:after {content:''; display: block; clear:both;}
+.img {width: 100%;}
+.strong-bg {display: inline-block; padding: 0 0.5rem; background-color: #111; color: #f8f8f8;}
+.fl {float: left;}
+.fr {float: right;}
+.abs {position: absolute;}
+.rel {position: relative;}
+.fix {position: fixed;}
+.tc {text-align: center;}
+.tl {text-align: left;}
+.tr {text-align: right;}
+.inline-b {display: inline-block;}
+.inline {display: inline;}
+.block {display:block;}
+.none {display: none;}
+.pointer {cursor:pointer;}
+.hover:hover {opacity: 0.8;}
+.hover-r {opacity: 0.8;}
+.hover-r:hover {opacity: 1;}
+
+/***** 폰트설정 *****/
+.font-pf {font-family: "Playfair Display";}
+.font-pt {font-family: 'PT Sans', sans-serif;}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
