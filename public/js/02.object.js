@@ -43,6 +43,16 @@ imgs[7] = {
 	content: "훌륭한 그림 8번입니다.",
 	src: "../img/p8.jpg"
 };
+imgs[8] = {
+	title: "그림 9번",
+	content: "훌륭한 그림 9번입니다.",
+	src: "../img/p1.jpg"
+};
+imgs[9] = {
+	title: "그림 10번",
+	content: "훌륭한 그림 10번입니다.",
+	src: "../img/p2.jpg"
+};
 
 for(var i in imgs) {
 	html = '<li><img src="' + imgs[i].src + '" class="img"></li>';

@@ -1,0 +1,5 @@
+.pic_b {width: 800px; height: 500px; border: 10px solid #aaa; margin: 50px auto; overflow: hidden;}
+.pic_b > img {width: 100%;}
+.pic_s {width: 800px; border: 2px solid #aaa; margin: auto; display: flex;}
+.pic_s > li {flex: 1 1;}
+.pic_s > li > img {width: 100%;}
