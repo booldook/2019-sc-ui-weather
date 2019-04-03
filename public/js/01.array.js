@@ -18,3 +18,10 @@ for(var i=0; i<pics.length; i++) {
 	html = '<li><img src="'+pics[i]+'"></li>';
 	$(".pic_s").append(html);
 }
+$(".pic_s img").click(function(){
+	var src = $(this).attr("src");
+	$(".pic_b > img").attr("src", src);
+	$(".pic_s img").css({"border": "none"});
+	$(this).css({"border": "2px solid #f00"});
+});
+$(".pic_s img").eq(0).trigger("click");
