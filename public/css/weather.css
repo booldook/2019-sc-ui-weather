@@ -26,7 +26,7 @@
 .weekly > li {width: 90%; padding: 0.5rem;}
 .weekly > .city {font-size: 3rem;}
 .weekly > .city > span:nth-child(2) {font-size: 1.5rem; color:beige;}
-.weekly > .forecast {height: 60%; flex-direction: column; justify-content: flex-start; align-items: stretch; overflow-y: scroll; background-color: rgba(255,255,255, 0.7);}
+.weekly > .forecast {height: 60%; flex-direction: column; justify-content: flex-start; align-items: stretch; overflow-y: scroll; background-color: rgba(0,0,0, 0.5); border: 2px solid #ccc; border-radius: 6px;}
 .weekly > .forecast > ul {width: 100%; border-bottom: 1px solid #888; display: flex;}
 .weekly > .forecast > ul > :nth-child(1) {flex: 1 1 25%; padding: 1rem;}
-.weekly > .forecast > ul > :nth-child(2) {flex: 1 1 75%; padding: 1rem;}
+.weekly > .forecast > ul > :nth-child(2) {flex: 1 1 75%; padding: 1rem; text-align: left;}

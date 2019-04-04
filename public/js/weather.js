@@ -86,6 +86,9 @@ $("#bt_weekly").click(function(){
 	weatherApi("forecast", getWeekly);
 });
 function getWeekly(res) {
+	var v = '';
+	var w = '';
+	var m = '';
 	console.log(res);
 	$(".daily").css({"display": "none"});
 	$(".weekly").css({"display": "flex"});
@@ -94,10 +97,14 @@ function getWeekly(res) {
 	$(".weekly > .city").find("span").eq(0).html(city);
 	$(".weekly > .city").find("span").eq(1).html('('+res.city.name+')');
 	for(var i in res.list) {
+		v = res.list[i];
+		w = res.list[i].weather[0];
+		m = res.list[i].main;
 		html  = '<ul>';
-		html += '<li><img src="'+path+res.list[i].weather[0].icon+'.png'+'" class="img"></li>';
+		html += '<li><img src="'+path+w.icon+'.png'+'" class="img"></li>';
 		html += '<li>';
-		html += '<div>'+res.list[i].dt+'</div>';
+		html += '<div class="temp">'+m.temp+'℃ (최저 '+m.temp_min+'℃ | 최고 '+m.temp_max+'℃)</div>';
+		html += '<div class="main">'+w.main+' ('+w.description+')</div>';
 		html += '</li>';
 		html += '</ul>';
 		$(".weekly > .forecast").append(html);
