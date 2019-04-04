@@ -1,3 +1,8 @@
+// 전역(Global)변수
+var city = '';
+var path = '../img/icon/';
+
+
 // Ajax 에러
 function ajaxError(xhr, status, err) {
 	console.log(xhr);
@@ -26,6 +31,8 @@ function getCity() {
 
 // 도시를 선택하면 현재날씨 가져오기
 $("#city").change(function(){
+	city = $(this).find('option:selected').text();
+	console.log(city);
 	$.ajax({
 		type: "get",
 		url: "https://api.openweathermap.org/data/2.5/weather",
@@ -41,4 +48,24 @@ $("#city").change(function(){
 });
 function getDaily(res) {
 	console.log(res);
+	$("#city").find("option").remove();
+	getCity();
+	$(".launch").css({"display": "none"});
+	$(".weekly").css({"display": "none"});
+	$(".daily").css({"display": "flex"});
+	$(".daily").find(".city").find("span").eq(0).html(city);
+	$(".daily").find(".city").find("span").eq(1).html('('+res.name+')');
+	$(".daily").find(".icon").find("img").attr("src", path+res.weather[0].icon+'.png');
+	$(".daily").find(".temp").find("span").eq(0).html(res.main.temp);
+	$(".daily").find(".temp").find("span").eq(1).html(res.main.temp_min);
+	$(".daily").find(".temp").find("span").eq(2).html(res.main.temp_max);
+	$(".daily").find(".main").html(res.weather[0].main);
+	$(".daily").find(".desc").html(res.weather[0].description);
 }
+
+// 다른도시보기
+$("#bt_city").click(function(){
+	$(".daily").css({"display": "none"});
+	$(".weekly").css({"display": "none"});
+	$(".launch").css({"display": "flex"});
+});

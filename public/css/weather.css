@@ -8,7 +8,17 @@
 .launch > p {color: #fff;}
 
 /***** 오늘의 날씨 *****/
-.daily {}
+.daily {width: 100%; height: 100%; display: none; justify-content: center; align-items: center;}
+.daily > ul {width: 80%; height: 80%; display: flex; flex-direction: column; text-align: center; color: #fff; justify-content: center; align-items: center;}
+.daily > ul > li {padding: 0.5rem;}
+.daily .city {font-size: 3rem;}
+.daily .city > span:nth-child(2) {font-size: 1.5rem; color:beige;}
+.daily .icon {max-width: 180px; padding: 1rem;}
+.daily .temp {font-size: 1.5rem;}
+.daily .temp > :not(:first-child) {font-size: 1.25rem;}
+.daily .main {font-size: 2rem;}
+.daily .desc {font-size: 1.5rem;}
+
 
 
 /***** 주간날씨 *****/
