@@ -103,6 +103,7 @@ function getWeekly(res) {
 		html  = '<ul>';
 		html += '<li><img src="'+path+w.icon+'.png'+'" class="img"></li>';
 		html += '<li>';
+		html += '<div class="date">'+v.dt_txt+'</div>';
 		html += '<div class="temp">'+m.temp+'℃ (최저 '+m.temp_min+'℃ | 최고 '+m.temp_max+'℃)</div>';
 		html += '<div class="main">'+w.main+' ('+w.description+')</div>';
 		html += '</li>';
