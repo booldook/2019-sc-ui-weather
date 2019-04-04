@@ -22,5 +22,11 @@
 
 
 /***** 주간날씨 *****/
-.weekly {width: 100%; height: 100%; display: flex; flex-direction: column; justify-content: flex-start; align-items: stretch; overflow-y: scroll; background-color: rgba(255,255,255, 0.7);}
-.weekly > ul {padding: 3rem 1rem; border-bottom: 1px solid #888;}
+.weekly {width: 100%; height: 100%; display: none; flex-direction: column; text-align: center; color: #fff; justify-content: center; align-items: center;}
+.weekly > li {width: 90%; padding: 0.5rem;}
+.weekly > .city {font-size: 3rem;}
+.weekly > .city > span:nth-child(2) {font-size: 1.5rem; color:beige;}
+.weekly > .forecast {height: 60%; flex-direction: column; justify-content: flex-start; align-items: stretch; overflow-y: scroll; background-color: rgba(255,255,255, 0.7);}
+.weekly > .forecast > ul {width: 100%; border-bottom: 1px solid #888; display: flex;}
+.weekly > .forecast > ul > :nth-child(1) {flex: 1 1 25%; padding: 1rem;}
+.weekly > .forecast > ul > :nth-child(2) {flex: 1 1 75%; padding: 1rem;}

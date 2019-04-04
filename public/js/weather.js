@@ -90,11 +90,16 @@ function getWeekly(res) {
 	$(".daily").css({"display": "none"});
 	$(".weekly").css({"display": "flex"});
 	$(".launch").css({"display": "none"});
-	$(".weekly").empty();
+	$(".weekly > .forecast").empty();
+	$(".weekly > .city").find("span").eq(0).html(city);
+	$(".weekly > .city").find("span").eq(1).html('('+res.city.name+')');
 	for(var i in res.list) {
 		html  = '<ul>';
-		html += '<li>'+res.list[i].dt_txt+'</li>';
+		html += '<li><img src="'+path+res.list[i].weather[0].icon+'.png'+'" class="img"></li>';
+		html += '<li>';
+		html += '<div>'+res.list[i].dt+'</div>';
+		html += '</li>';
 		html += '</ul>';
-		$(".weekly").append(html);
+		$(".weekly > .forecast").append(html);
 	}
 }
