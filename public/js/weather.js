@@ -1,5 +1,7 @@
 // 전역(Global)변수
 var city = '';
+var cityId = '';
+var api = 'https://api.openweathermap.org/data/2.5/';
 var path = '../img/icon/';
 
 
@@ -10,7 +12,7 @@ function ajaxError(xhr, status, err) {
 	console.log(err);
 }
 
-// 도시id 가져오기
+// 도시id 가져오기 - 최초 실행
 getCity();
 function getCity() {
 	$.ajax({
@@ -21,6 +23,7 @@ function getCity() {
 		success: function(res) {
 			var html = '';
 			var city = res.cities;
+			$("#city").append('<option value="">== 도시선택 ==</option>');
 			for(var i in city) {
 				html = '<option value="'+city[i].id+'">'+city[i].name+'</option>';
 				$("#city").append(html);
@@ -29,27 +32,32 @@ function getCity() {
 	});
 }
 
-// 도시를 선택하면 현재날씨 가져오기
-$("#city").change(function(){
-	city = $(this).find('option:selected').text();
-	console.log(city);
+
+// openweathermap api연동
+function weatherApi(file, callback) {
 	$.ajax({
 		type: "get",
-		url: "https://api.openweathermap.org/data/2.5/weather",
+		url: api+file,
 		data: {
-			id: $(this).val(),
+			id: cityId,
 			appid: "02efdd64bdc14b279bc91d9247db4722",
 			units: "metric"
 		},
 		dataType: "json",
 		error: ajaxError,
-		success: getDaily
+		success: callback
 	});
+}
+
+
+// 도시를 선택하면 현재날씨 가져오기
+$("#city").change(function(){
+	city = $(this).find('option:selected').text();
+	cityId = $(this).val();
+	weatherApi("weather", getDaily);
 });
 function getDaily(res) {
 	console.log(res);
-	$("#city").find("option").remove();
-	getCity();
 	$(".launch").css({"display": "none"});
 	$(".weekly").css({"display": "none"});
 	$(".daily").css({"display": "flex"});
@@ -68,4 +76,25 @@ $("#bt_city").click(function(){
 	$(".daily").css({"display": "none"});
 	$(".weekly").css({"display": "none"});
 	$(".launch").css({"display": "flex"});
+	//$("#city").find("option").remove();
+	$("#city").empty();
+	getCity();
 });
+
+// 5일간 날씨보기
+$("#bt_weekly").click(function(){
+	weatherApi("forecast", getWeekly);
+});
+function getWeekly(res) {
+	console.log(res);
+	$(".daily").css({"display": "none"});
+	$(".weekly").css({"display": "flex"});
+	$(".launch").css({"display": "none"});
+	$(".weekly").empty();
+	for(var i in res.list) {
+		html  = '<ul>';
+		html += '<li>'+res.list[i].dt_txt+'</li>';
+		html += '</ul>';
+		$(".weekly").append(html);
+	}
+}
