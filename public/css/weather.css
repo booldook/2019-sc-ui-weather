@@ -21,8 +21,6 @@
 .daily .desc {font-size: 1.5rem;}
 
 
-
 /***** 주간날씨 *****/
-.weekly {width: 100%; height: 100%; display: flex; flex-direction: column; justify-content: flex-start;
-align-items: stretch; overflow-y: scroll;}
+.weekly {width: 100%; height: 100%; display: flex; flex-direction: column; justify-content: flex-start; align-items: stretch; overflow-y: scroll; background-color: rgba(255,255,255, 0.7);}
 .weekly > ul {padding: 3rem 1rem; border-bottom: 1px solid #888;}
