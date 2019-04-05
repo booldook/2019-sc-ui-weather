@@ -72,7 +72,7 @@ function getDaily(res) {
 }
 
 // 다른도시보기
-$("#bt_city").click(function(){
+$(".bt_city").click(function(){
 	$(".daily").css({"display": "none"});
 	$(".weekly").css({"display": "none"});
 	$(".launch").css({"display": "flex"});
@@ -111,3 +111,7 @@ function getWeekly(res) {
 		$(".weekly > .forecast").append(html);
 	}
 }
+
+$("#bt_daily").click(function(){
+	weatherApi("weather", getDaily);
+});
