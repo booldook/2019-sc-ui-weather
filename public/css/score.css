@@ -1,0 +1,2 @@
+.score_in ul {display: flex;}
+.score_in li {flex: 1 1 10%;}
